@@ -1,0 +1,68 @@
+import * as d3 from "d3";
+import moment from "moment";
+import * as Profiler from "./profiler.js";
+import * as Grapher from "./grapher.js";
+import { link } from "fs";
+
+const INPUT = "input path";
+
+async function main() {
+  let csvRaw = await d3.csv(INPUT);
+  let sanitiseRecords = [...new Set(csvRaw)].map(r => {
+    return {
+      hash: r.Hash,
+      file_type: r.file_type,
+      file_category: Profiler.get_file_type_category(r.file_type),
+      scan_date: moment(r.scan_date),
+      report_date: moment(r.report_date),
+      report_year: moment(r.report_date).year(),
+      success: parseInt(r.success),
+      failure: parseInt(r.failure)
+    };
+  });
+
+  Grapher.render_success_vs_failure_detection_rate_charts(
+    sanitiseRecords,
+    "file_type",
+    Profiler.get_file_type_summaries,
+    (s1, s2) => s1.failure_rate - s2.failure_rate
+  );
+
+  Grapher.render_success_vs_failure_detection_rate_charts(
+    sanitiseRecords,
+    "year",
+    Profiler.getYearSummaries,
+    (s1, s2) => s1.year - s2.year
+  );
+
+  let data = Profiler.get_file_type_year_distribution_data(sanitiseRecords);
+  let years = data.map(d => d.year).filter((v, i, a) => a.indexOf(v) === i);
+  let nodes = years.map((y, i) => ({ node: i, name: y }));
+  let links = [];
+  data.forEach((d, i, a) => {
+    let records = a
+      .filter(z => z.file_category === d.file_category)
+      .sort((x, y) => x.year - y.year);
+    let position_of_current_data = records.findIndex(z => z.year === d.year);
+    let target = records[position_of_current_data + 1];
+
+    if (!!target)
+      links.push({
+        source: d.year,
+        target: target.year,
+        value: d.success_rate
+      });
+  });
+  let svg = Grapher.get_connected_scatter(
+    data,
+    "file_category",
+    "year",
+    "success_rate"
+  );
+  Grapher.render_chart(
+    svg,
+    "Successful detection rate of file types over the years"
+  );
+}
+
+main();
