@@ -4,17 +4,15 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   Appear,
-  BlockQuote,
-  Cite,
   Deck,
   Heading,
   ListItem,
   List,
-  Quote,
   Slide,
   Text,
   Link,
-  Notes
+  Notes,
+  Image
 } from "spectacle";
 import CodeSlide from "spectacle-code-slide";
 
@@ -68,8 +66,9 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["zoom"]} bgColor="tertiary">
           <Heading size={1} textColor="primary">
-            Some context
+            Context
           </Heading>
+          <Heading size={6}>APT + VirusTotal</Heading>
           <Notes textColor="secondary">
             <strong>APT</strong> - Advance Persistent Threat
             <br />
@@ -158,10 +157,10 @@ export default class Presentation extends React.Component {
           ]}
         />
         <Slide transition={["fade"]} bgColor="secondary">
-          <Heading size={4} textColor="tertiary" textAlign="left" bold>
-            Thank you for listening. If you have any questions, concerns or
-            thoughts, please don't hesitate
+          <Heading size={4} textColor="tertiary" bold>
+            Thank you!
           </Heading>
+          <Image src="https://media.giphy.com/media/fWfowxJtHySJ0SGCgN/giphy.gif" />
         </Slide>
       </Deck>
     );
