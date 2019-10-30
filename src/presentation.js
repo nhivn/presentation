@@ -53,6 +53,19 @@ export default class Presentation extends React.Component {
           <Text margin="10px 0 0" textColor="primary" size={1} fit bold>
             A study on malware detection rates using VirusTotal scan results
           </Text>
+          <Appear>
+            <div>
+              <Text
+                margin="10px 0 0"
+                textSize="20px"
+                textAlign="left"
+                transition={["fade"]}
+                textColor="primary"
+              >
+                <em>by</em> <strong>Nhi Van Nguyen - 101256529</strong>
+              </Text>
+            </div>
+          </Appear>
           <Notes textColor="secondary">Introduce self. And all that.</Notes>
         </Slide>
         <Slide transition={["slide"]} bgColor="primary">
@@ -78,6 +91,33 @@ export default class Presentation extends React.Component {
             <strong>VirusTotal</strong> - public services, provides virus scan
             results and additional of analysed files, include detection results
             of 50+ antivirus engines
+            <br />
+            <strong>Stuxnet</strong>
+            - Highly-sophisticated computer worm, discovered in 2010 <br />
+            - American and Israeli governments
+            <br />- Computer system of the machines used to enrich uranium{" "}
+            <br />- Report to the control room that nothing was amiss
+            <br />
+            -20% of the machines were spun out of control and broken.
+            <br />
+            -Scientists have no idea why
+          </Notes>
+        </Slide>
+        <Slide transition={["fade"]}>
+          <Heading size={1} textColor="tertiary">
+            Story time
+          </Heading>
+          <Heading size={6}>Stuxnet - based on a true story</Heading>
+          <Notes>
+            <strong>Stuxnet</strong>
+            - Highly-sophisticated computer worm, discovered in 2010 <br />
+            - American and Israeli governments
+            <br />- Computer system of the machines used to enrich uranium{" "}
+            <br />- Report to the control room that nothing was amiss
+            <br />
+            -20% of the machines were spun out of control and broken.
+            <br />
+            -Scientists have no idea why
           </Notes>
         </Slide>
         <Slide
