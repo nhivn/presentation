@@ -132,7 +132,7 @@ export default class Presentation extends React.Component {
             href={`https://heuristic-feynman-5237d9.netlify.com/`}
             target="_blank"
           >
-            <Text textColor="secondary">Charts made using d3js</Text>
+            <Text textColor="secondary">Charts made using D3.js</Text>
           </Link>
           <Link
             href={`https://eu-west-1a.online.tableau.com/#/site/lethalcelery/views/ITSEC/Presentation?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link&:iid=5`}
