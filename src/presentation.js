@@ -118,6 +118,7 @@ export default class Presentation extends React.Component {
             -20% of the machines were spun out of control and broken.
             <br />
             -Scientists have no idea why
+            <br />- Israeli made Stuxnet more aggressive
           </Notes>
         </Slide>
         <Slide
