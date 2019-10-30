@@ -81,7 +81,7 @@ export default class Presentation extends React.Component {
             of 50+ antivirus engines
           </Notes>
         </Slide>
-        {/* <Slide
+        <Slide
           transition={["fade"]}
           bgColor="secondary"
           textColor="primary"
@@ -126,7 +126,7 @@ export default class Presentation extends React.Component {
             <br />
             Show my results in next slide
           </Notes>
-        </Slide> */}
+        </Slide>
         <Slide transition={["fade"]} bgColor="primary" align="center center">
           <Heading>Results</Heading>
           <Link
